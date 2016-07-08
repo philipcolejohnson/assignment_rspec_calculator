@@ -18,6 +18,21 @@ class computer
   pick
   get_pick
 
+--------------
+
+  if valid pick= is true in valid_turns?
+  if invalid pick= is false in valid_turns?
+  
+  if pick returns correct pick value
+  if piece returns correct piece value
+
+  if new player sets piece correctly
+
+  ----
+
+  HUMAN
+  pick correctly sets @pick
+
 =end
 
 

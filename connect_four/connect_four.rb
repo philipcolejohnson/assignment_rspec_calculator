@@ -21,7 +21,14 @@ class connect_four
   tests number of players to see if it makes a computer or human
   test that it sets current player
   initiates a turn counter
+  
+  if assign_player switches players
 
+  if tie works for when board is turns max out
+
+  if win works under various conditions
+
+  if game_over? works with win? and tie?  
 
 =end
 
