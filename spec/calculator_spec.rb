@@ -49,7 +49,7 @@ describe Calculator do
     end
 
     it "raises an error when dividing by zero" do
-      expect(c.divide(1,0)).to raise_error(ArgumentError)
+      expect{c.divide(1,0)}.to raise_error (ArgumentError)
     end
   end
 
@@ -75,6 +75,10 @@ describe Calculator do
     it "can return an irrational square root" do
       expect(c.sqrt(10)).to be_within(0.2).of(3)
     end
+
+    it "will raise an argument error if passed a negative number" do
+      expect{c.sqrt(-9)}.to raise_error(ArgumentError)
+    end
     
   end
 
@@ -88,7 +92,28 @@ describe Calculator do
       expect(c.memory).to eq(3)
     end
 
-    it ""
+    it "Replaces number in memory with new number" do
+      c.instance_variable_set(:@memory, 5)
+      c.memory = 3
+      expect(c.instance_variable_get(:@memory)).to eq(3)
+    end
+
+    it "clears memory after returning" do
+      c.instance_variable_set(:@memory, 5)
+      c.memory
+      expect(c.instance_variable_get(:@memory)).to eq(nil)
+    end
   end
+
+  describe "#output" do
+    let (:string_c){Calculator.new(true)}
+    it "returns a string when adding" do
+      expect(string_c.add(2,4)).to eq("6")
+    end
+  end
+
+
+
+
 
 end
