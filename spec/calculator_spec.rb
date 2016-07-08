@@ -106,14 +106,33 @@ describe Calculator do
   end
 
   describe "#output" do
+
     let (:string_c){Calculator.new(true)}
+
     it "returns a string when adding" do
       expect(string_c.add(2,4)).to eq("6")
     end
+
+    it "returns a string when subtracting" do
+      expect(string_c.subtract(4,2)).to eq("2")
+    end
+
+    it "returns a string when multiplying" do
+      expect(string_c.multiply(4,2)).to eq("8")
+    end
+
+    it "returns a string when dividing" do
+      expect(string_c.divide(4,2)).to eq("2")
+    end
+
+    it "returns a string when using exponents" do
+      expect(string_c.pow(4,2)).to eq("16.0")
+    end
+
+    it "returns a string when taking a square root" do
+      expect(string_c.sqrt(4)).to eq("2")
+    end
   end
-
-
-
 
 
 end
