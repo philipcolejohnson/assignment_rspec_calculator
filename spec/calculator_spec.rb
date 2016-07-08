@@ -13,6 +13,10 @@ describe Calculator do
     it "returns the sum with a negative argument" do
       expect(Calculator.new.add(-3, 3)).to eq(0)
     end
+
+    it "can add two floats" do
+      expect(c.add(2.5, 3.5)).to eq(6)
+    end
   end
 
   describe "#subtract" do
@@ -22,6 +26,10 @@ describe Calculator do
 
     it "returns the correct difference with negative numbers" do
       expect(c.subtract(-3, -4)).to eq(1)
+    end
+
+    it "can subtract two floats" do
+      expect(c.subtract(4.5, 2.1)).to eq(2.4)
     end
   end
 
@@ -39,6 +47,10 @@ describe Calculator do
     it "returns a float when dividing two integers" do
       expect(c.divide(5,2)).to eq(2.5)
     end
+
+    it "raises an error when dividing by zero" do
+      expect(c.divide(1,0)).to raise_error(ArgumentError)
+    end
   end
 
   describe "#pow" do
@@ -55,14 +67,28 @@ describe Calculator do
     end
   end
 
-    describe "#sqrt" do
-      it "returns a rational number of a number" do
-        expect(c.sqrt(9)).to eq(3)
-      end
-
-      it "can return an irrational square root" do
-        expect(c.sqrt(10)).to eq()
-      
+  describe "#sqrt" do
+    it "returns a rational number of a number" do
+      expect(c.sqrt(9)).to eq(3)
     end
+
+    it "can return an irrational square root" do
+      expect(c.sqrt(10)).to be_within(0.2).of(3)
+    end
+    
+  end
+
+  describe "#memory" do
+    it "starts with nothing in memory" do
+      expect(Calculator.new.memory).to eq(nil)
+    end
+
+    it "can store numbers in memory" do
+      c.memory = 3
+      expect(c.memory).to eq(3)
+    end
+
+    it ""
+  end
 
 end
